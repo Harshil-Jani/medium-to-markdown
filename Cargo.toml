@@ -2,6 +2,15 @@
 name = "medium-to-markdown"
 version = "0.1.0"
 edition = "2021"
+authors = ["Harshil-Jani <harshiljani2002@gmail.com>"]
+license = "GNU General Public License v3.0"
+description = "A tool to parse medium blogs to markdown files"
+readme = "README.md"
+homepage = "https://github.com/Harshil-Jani/medium-to-markdown"
+repository = "https://github.com/Harshil-Jani/medium-to-markdown"
+keywords = ["cli", "parser", "blog", "medium"]
+categories = ["command-line-utilities"]
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
