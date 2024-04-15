@@ -1,6 +1,6 @@
 [package]
 name = "medium-to-markdown"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Harshil-Jani <harshiljani2002@gmail.com>"]
 license = "GPL-2.0-or-later WITH Bison-exception-2.2"
