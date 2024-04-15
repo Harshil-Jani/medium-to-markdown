@@ -1,4 +1,4 @@
-use html_parser::{Dom, Node};
+use html_parser::{Dom, Element, Node};
 
 pub fn parse_medium_post(dom: Dom) {
     for node in &dom.children {
@@ -40,29 +40,44 @@ fn extract_inline(node: &Node) -> Option<String> {
             match element.name.as_str() {
                 "b" | "strong" => {
                     // Parse Bold
-                    Some("".to_owned())
+                    let text = parse_formatting_text(element);
+                    Some(format!("**{}** ", text.trim()))
                 }
                 "i" => {
                     // Parse Italic
-                    Some("".to_owned())
+                    let text = parse_formatting_text(element);
+                    Some(format!("*{}* ", text.trim()))
                 }
                 "br" => {
                     // Parse Line Break
-                    Some("".to_owned())
+                    Some("\n".to_owned())
                 }
                 "code" => {
                     // Parse `tag` Code
-                    Some("".to_owned())
+                    let text = parse_formatting_text(element);
+                    Some(format!("`{}` ", text.trim()))
                 }
                 _ => {
                     // Check for nested elements
                     // Eg : <p> <b>Hello <i>World</i></b> </p>
                     // In order to check for nested elements, We need to recursively call extract_inline
                     // and iterate over the childrens of the inline elements.
-                    Some("".to_owned())
+                    // If the text is not formatted then return as a simple text.
+                    let text = parse_formatting_text(element);
+                    Some(text)
                 }
             }
         }
         _ => None,
     }
+}
+
+fn parse_formatting_text(element : &Element) -> String{
+    let mut result = String::new();
+    for child in &element.children {
+        if let Some(text) = extract_inline(child) {
+            result.push_str(&text);
+        }
+    }
+    result
 }
