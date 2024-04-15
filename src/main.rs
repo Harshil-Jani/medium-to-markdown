@@ -2,6 +2,7 @@ use parser::parse_medium_post;
 
 mod dom;
 mod parser;
+mod test;
 
 fn main() {
     let url = "https://www.rust-lang.org/";
