@@ -18,12 +18,12 @@ fn parse_dom(node: &Node) -> Option<String> {
         Some(element) => match element.name.as_str() {
             "h1" => {
                 if let Some(text) = extract_inline(node) {
-                    parsed_content.push_str(&format!("# {}\n", text));
+                    parsed_content.push_str(&format!("\n# {}\n", text));
                 }
             }
             "h2" => {
                 if let Some(text) = extract_inline(node) {
-                    parsed_content.push_str(&format!("## {}\n", text));
+                    parsed_content.push_str(&format!("\n## {}\n", text));
                 }
             }
             "p" => {

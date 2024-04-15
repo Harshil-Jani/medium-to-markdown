@@ -8,13 +8,13 @@ mod test {
         let html = "<html><head></head><body><h1>Hii</h1></body></html>";
         if let Ok(dom) = Dom::parse(&html) {
             let markdown = parse_medium_post(dom).unwrap();
-            assert_eq!(markdown, "# Hii\n".to_string());
+            assert_eq!(markdown, "\n# Hii\n".to_string());
         }
 
         let html = "<html><head></head><body><h2>Hii</h2></body></html>";
         if let Ok(dom) = Dom::parse(&html) {
             let markdown = parse_medium_post(dom).unwrap();
-            assert_eq!(markdown, "## Hii\n".to_string());
+            assert_eq!(markdown, "\n## Hii\n".to_string());
         }
     }
 
@@ -63,7 +63,7 @@ mod test {
         let html = "<html><head></head><body><h1>Heading</h1><p class='pw-post-body-paragraph'>Paragraph</p></body></html>";
         if let Ok(dom) = Dom::parse(&html) {
             let markdown = parse_medium_post(dom).unwrap();
-            assert_eq!(markdown, "# Heading\n\nParagraph\n".to_string());
+            assert_eq!(markdown, "\n# Heading\n\nParagraph\n".to_string());
         }
     }
 
@@ -74,7 +74,7 @@ mod test {
             let markdown = parse_medium_post(dom).unwrap();
             assert_eq!(
                 markdown,
-                "# Heading\n\nParagraph **bold** *italic*\n".to_string()
+                "\n# Heading\n\nParagraph **bold** *italic*\n".to_string()
             );
         }
     }
