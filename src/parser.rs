@@ -81,7 +81,7 @@ fn extract_inline(node: &Node) -> Option<String> {
                     let text = parse_formatting_text(element);
                     Some(format!("**{}** ", text.trim()))
                 }
-                "i" => {
+                "i" | "em" => {
                     // Parse Italic
                     let text = parse_formatting_text(element);
                     Some(format!("*{}* ", text.trim()))
