@@ -16,5 +16,5 @@ categories = ["command-line-utilities"]
 
 [dependencies]
 reqwest = "0.12.3"
-tokio = { version = "1.37.0", features = ["full"] }
+tokio = { version = "1.37.0", features = ["rt-multi-thread", "macros"] }
 html_parser = "0.7.0"
