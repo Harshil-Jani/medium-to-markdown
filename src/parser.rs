@@ -33,6 +33,11 @@ fn parse_dom(node: &Node) -> Option<String> {
                     }
                 }
             }
+            "li" => {
+                if let Some(text) = extract_inline(node) {
+                    parsed_content.push_str(&format!("- {}\n", text.trim()));
+                }
+            }
             "pre" => {
                 if let Some(text) = extract_inline(node) {
                     parsed_content.push_str(&format!("```\n{}\n```\n", text));
