@@ -13,6 +13,7 @@ Medium provides a convenient platform for hosting blogs and reaching a wide audi
 - [x] Images (source)
 - [x] Line Breaks (br)
 - [x] Bold (b,strong), Italics (i)
+- [x] Lists (li)
 
 # Installation
 
